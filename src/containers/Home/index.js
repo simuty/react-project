@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
-function mapStateToProps(state) {
-    return {};
-}
+// function mapStateToProps(state) {
+//     return {};
+// }
 
-class Home extends Component {
+export default  class Home extends Component {
     render() {
-        return <div>home</div>;
+        return <h1>home</h1>;
     }
 }
 
-export default connect(mapStateToProps)(Home);
+// export default connect(mapStateToProps)(Home);
