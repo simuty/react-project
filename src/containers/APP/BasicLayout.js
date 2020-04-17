@@ -1,5 +1,15 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Layout, Menu } from 'antd';
+import {
+    NavLink,
+    BrowserRouter,
+    BrowserRouter as Router,
+    Route,
+} from 'react-router-dom';
+
+import Home from '../Home';
+import Login from '../Login';
+
 import './BasicLayout.css';
 import {
     MenuUnfoldOutlined,
@@ -19,14 +29,19 @@ export default class BasicLayout extends React.Component {
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider>
                     <div className="logo" />
-                    <Menu theme="dark" defaultOpenKeys={['1']} mode='inline'>
+                    <Menu theme="dark" defaultOpenKeys={['1']} mode="inline">
                         <Menu.Item key="0">
                             <span> 菜单 </span>
                         </Menu.Item>
+
                         <Menu.Item key="1">
                             <UserOutlined />
+                            <BrowserRouter>
+                                <NavLink to="/home"></NavLink>
+                            </BrowserRouter>
                             <span> 首页 </span>
                         </Menu.Item>
+
                         <Menu.Item key="2">
                             <VideoCameraOutlined />
                             <span>用户管理 </span>
@@ -48,7 +63,12 @@ export default class BasicLayout extends React.Component {
                 </Sider>
                 <Layout>
                     <Header>header</Header>
-                    <Content>main content</Content>
+                    <Content>
+                        <Router>
+                            <Route path="/home" component={Home} />
+                            <Route path="/login" component={Login} />
+                        </Router>
+                    </Content>
                     <Footer style={{ textAlign: 'center' }}>
                         Ant Design ©2018 Created by Ant UED
                     </Footer>
