@@ -6,19 +6,16 @@ import BasicLayout from './containers/App/BasicLayout';
 import routes from './routes';
 import { renderRoutes } from 'react-router-config';
 import { HashRouter } from 'react-router-dom';
-
-import { Button } from 'antd';
+import store from './redux/configureStore';
+import { Provider } from 'react-redux';
 
 function App() {
     return (
-        <BasicLayout>
-            <HashRouter>
-                <div className="App">
-                    <Button> this is antd button </Button>
-                </div>
-                {renderRoutes(routes)}
-            </HashRouter>
-        </BasicLayout>
+        <Provider store={store}>
+            <BasicLayout>
+                <HashRouter>{renderRoutes(routes)}</HashRouter>
+            </BasicLayout>
+        </Provider>
     );
 }
 

@@ -1,5 +1,7 @@
 [React+Redux工程目录结构，最佳实践](https://www.lovesofttech.com/react/reactReduxDirectoryStructure.html)
 
+[github](https://github.com/xuchaobei/react-book/tree/master/chapter-09/bbs-redux-reselect)
+
 
 ## 目录结构
 
