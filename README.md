@@ -1,4 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+采用 [Create React App](https://github.com/facebook/create-react-app).
+
+
+## 目录结构
+
+完整的目录结构说明见， 同级目录下的catalog.md
+
+```
+components/  (应用级别的通用组件)
+containers/  <容器组件>
+  feature1/     <>
+    components/  (功能拆分出的专用组件)
+    feature1.js  (容器组件)
+    index.js     (feature1对外暴露的接口)
+redux/
+  index.js (combineReducers)
+  module1.js (reducer, action types, actions creators)
+  module2.js (reducer, action types, actions creators)
+index.js
+```
 
 ## Available Scripts
 
