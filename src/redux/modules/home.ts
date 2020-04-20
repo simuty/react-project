@@ -4,6 +4,13 @@ const initialState = {
 };
 
 // action types
+export enum TYPES {
+    START_REQUEST = 'APP/START_REQUEST', // 开始发送请求
+    FINISH_REQUEST = 'APP/FINISH_REQUEST', // 请求结束
+    SET_ERROR = 'APP/SET_ERROR', // 设置错误信息
+    REMOVE_ERROR = 'APP/REMOVE_ERROR', // 删除错误信息
+}
+
 export const types = {
     START_REQUEST: 'APP/START_REQUEST', // 开始发送请求
     FINISH_REQUEST: 'APP/FINISH_REQUEST', // 请求结束
@@ -19,7 +26,7 @@ export const actions = {
     finishRequest: () => ({
         type: types.FINISH_REQUEST,
     }),
-    setError: (error) => ({
+    setError: (error: any) => ({
         type: types.SET_ERROR,
         error,
     }),
@@ -29,7 +36,7 @@ export const actions = {
 };
 
 // reducers
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: { type: TYPES; error: any }) => {
     switch (action.type) {
         case types.START_REQUEST:
             // 每接收一个API请求开始的action，requestQuantity加1

@@ -2,16 +2,13 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './modules';
 
-let store =
+const store =
     process.env.NODE_ENV === 'production'
         ? createStore(rootReducer, applyMiddleware(thunk))
-        : window.__REDUX_DEVTOOLS_EXTENSION__
+        : (window as any).__REDUX_DEVTOOLS_EXTENSION__
         ? createStore(
               rootReducer,
-              compose(
-                  applyMiddleware(thunk),
-                  window.__REDUX_DEVTOOLS_EXTENSION__(),
-              ),
+              compose(applyMiddleware(thunk), (window as any).__REDUX_DEVTOOLS_EXTENSION__())
           )
         : createStore(rootReducer, applyMiddleware(thunk));
 

@@ -7,12 +7,8 @@ import Login from '../Login';
 
 import './BasicLayout.css';
 import {
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
     UserOutlined,
     VideoCameraOutlined,
-    UploadOutlined,
-    PlusOutlined,
 } from '@ant-design/icons';
 
 const { Header, Sider, Content, Footer } = Layout;
