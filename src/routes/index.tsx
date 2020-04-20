@@ -3,15 +3,16 @@ import React from 'react';
 import Home from '../containers/Home';
 import Login from '../containers/Login';
 import { Redirect } from 'react-router-dom';
+import { RouteConfig } from 'react-router-config';
 
-export default [
+const routerConfig: RouteConfig[] = [
     {
         component: Home,
         routes: [
             {
                 path: '/',
                 exact: true,
-                render: <Redirect to="/home" />
+                render: () => <Redirect to="/home" />
             },
             {
                 path: '/home',
@@ -24,3 +25,4 @@ export default [
         ],
     },
 ];
+export default routerConfig;
