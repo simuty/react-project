@@ -1,17 +1,16 @@
 import * as React from 'react';
 
-import { Menu, Layout } from 'antd'
+import { Layout } from 'antd'
 import SiderMenu from './SiderMenu';
 import menus from './../routes/config'
-const { Sider } = Layout;
 
-const MenuItem = Menu.Item;
+const { Sider } = Layout;
 
 // Component
 
 interface ISiderCustomStateProps {
     popoverHide?: () => void;
-    collapsed?: boolean;
+    collapsed: boolean;
     smenus?: any;
 }
 
@@ -58,6 +57,8 @@ export class SiderCustom extends React.Component<ISiderCustomProps, ISiderCustom
         return (
             <Sider
                 className="sider-custom"
+                collapsed={collapsed}
+                style={{ overflowY: 'auto' }}
             >
                 <div className="logo" />
                 <SiderMenu
@@ -68,14 +69,14 @@ export class SiderCustom extends React.Component<ISiderCustomProps, ISiderCustom
                     // openKeys={firstHide ? [] : openKeys}
                     onOpenChange={this.openMenu}
                 />
-                {/* <style>
+                <style>
                     {`
                     #nprogress .spinner{
                         left: ${collapsed ? '70px' : '206px'};
                         right: 0 !important;
                     }
                     `}
-                </style> */}
+                </style>
             </Sider>
         );
     }
