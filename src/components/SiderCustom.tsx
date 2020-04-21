@@ -56,13 +56,15 @@ export class SiderCustom extends React.Component<ISiderCustomProps, ISiderCustom
     public render() {
         const { collapsed } = this.props;
         return (
-            <Sider>
+            <Sider
+                className="sider-custom"
+            >
                 <div className="logo" />
                 <SiderMenu
                     menus={menus.menus}
                     onClick={this.menuClick}
                     mode="inline"
-                    selectedKeys={['/app/dashboard/index']}
+                    // selectedKeys={['/app/dashboard/index']}
                     // openKeys={firstHide ? [] : openKeys}
                     onOpenChange={this.openMenu}
                 />

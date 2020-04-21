@@ -62,7 +62,7 @@ export class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCus
                         
                     </Popover> */}
                     {/* {折叠按钮} */}
-                    <MenuFoldOutlined onClick={this.props.toggle} /> :
+                    <MenuFoldOutlined onClick={this.props.toggle} className='header__trigger'/> :
 
                     {/* {this.props.collapsed ?
                         <MenuFoldOutlined onClick={this.props.toggle} /> :

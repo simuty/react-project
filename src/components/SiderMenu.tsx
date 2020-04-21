@@ -11,7 +11,7 @@ const SubMenu = Menu.SubMenu;
 type SiderMenuProps = MenuProps & {
     menus: any;
     onClick: (e: any) => void;
-    selectedKeys: string[];
+    selectedKeys?: string[];
     openKeys?: string[];
     onOpenChange: (v: string[]) => void;
 };

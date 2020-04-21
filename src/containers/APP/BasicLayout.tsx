@@ -5,8 +5,8 @@ import { Copyright } from '../../components/widget'
 
 import SiderCustom from '../../components/SiderCustom'
 
-import '../../style/index.less';
 
+import './BasicLayout.less'
 
 import Icon, {
     UserOutlined,
@@ -47,7 +47,7 @@ export default class BasicLayout extends React.Component {
                         {this.props.children}
                     </Content>
 
-                    <Footer className='test.ant-layout-footer'>
+                    <Footer className='app_layout_foot'>
                         <Copyright />
                     </Footer>
                 </Layout>
