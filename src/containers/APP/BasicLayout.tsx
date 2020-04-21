@@ -5,7 +5,6 @@ import { Copyright } from '../../components/widget'
 
 import SiderCustom from '../../components/SiderCustom'
 
-import * as test from './BasicLayout.less';
 import '../../style/index.less';
 
 
