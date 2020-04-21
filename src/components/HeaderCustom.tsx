@@ -2,6 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { AnyAction, Dispatch } from 'redux';
 import { Layout, Popover, Badge, Menu } from 'antd'
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+
 
 import {
     NotificationOutlined, UserOutlined, LogoutOutlined,
@@ -14,24 +16,18 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 // Component
-interface IHeaderCustomStateProps { }
-
-interface IHeaderCustomDispatchProps { }
-
-interface IHeaderCustomProps extends IHeaderCustomStateProps, IHeaderCustomDispatchProps {
+type IHeaderCustomProps = RouteComponentProps<any> & {
     toggle: () => void;
     collapsed: boolean;
     user?: any;
     responsive?: any;
     path?: string;
-}
-
-interface IHeaderCustomState {
+};
+type IHeaderCustomState = {
     user: any;
     visible: boolean;
-}
-
-export class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCustomState> {
+};
+class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCustomState> {
     state = {
         user: '',
         visible: false,
@@ -39,6 +35,10 @@ export class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCus
 
     handleVisibleChange = (visible: boolean) => {
         this.setState({ visible });
+    }
+
+    logout = () => {
+        this.props.history.push('/404');
     }
 
     public render() {
@@ -94,13 +94,8 @@ export class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCus
                             <MenuItemGroup title="用户中心">
                                 {/* <Menu.Item key="setting:1">你好 - {this.props.user.userName}</Menu.Item> */}
                                 <Menu.Item> 你好 - XXX </Menu.Item>
-                                <Menu.Item key="setting:2">
-                                    <span>
-                                        <InfoOutlined /> 退出
-                                    </span>
-                                </Menu.Item>
                                 <Menu.Item key="logout">
-                                    <span>
+                                    <span onClick={this.logout}>
                                         <LogoutOutlined /> 退出
                                     </span>
                                 </Menu.Item>
@@ -121,21 +116,23 @@ export class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCus
 
 // Container
 
-interface IHeaderCustomOwnProps { }
+// interface IHeaderCustomOwnProps { }
 
-const mapStateToProps = (state: any, ownProps: IHeaderCustomOwnProps): IHeaderCustomStateProps => {
-    return {
-        // ...mapStateToProps
-    };
-};
+// const mapStateToProps = (state: any, ownProps: IHeaderCustomOwnProps): IHeaderCustomOwnProps => {
+//     return {
+//         // ...mapStateToProps
+//     };
+// };
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>, ownProps: IHeaderCustomOwnProps): IHeaderCustomDispatchProps => {
-    return {
-        // ...mapDispatchToProps
-    };
-};
+// const mapDispatchToProps = (dispatch: Dispatch<AnyAction>, ownProps: IHeaderCustomOwnProps): any => {
+//     return {
+//         // ...mapDispatchToProps
+//     };
+// };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(HeaderCustom);
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps,
+// )(HeaderCustom);
+
+export default withRouter(HeaderCustom);

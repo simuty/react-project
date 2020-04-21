@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import HearderCustom, { HeaderCustom } from "./components/HeaderCustom"
+import HeaderCustom from "./components/HeaderCustom"
 import { Copyright } from './components/widget'
 
 import SiderCustom from './components/SiderCustom'
@@ -39,7 +39,7 @@ export default class App extends React.Component {
                     <HeaderCustom
                         toggle={this.toggle}
                         collapsed={this.state.collapsed}
-                        user={{}}
+                        // user={}
                     ></HeaderCustom>
 
                     <Content className="app_layout_content">
