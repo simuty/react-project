@@ -38,7 +38,8 @@ class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCustomStat
     }
 
     logout = () => {
-        this.props.history.push('/404');
+        console.log('点击-退出按钮')
+        // this.props.history.push('/404');
     }
 
     public render() {
@@ -62,7 +63,7 @@ class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCustomStat
                         
                     </Popover> */}
                     {/* {折叠按钮} */}
-                    <MenuFoldOutlined onClick={this.props.toggle} className='header__trigger'/> :
+                    <MenuFoldOutlined onClick={this.props.toggle} className='header__trigger' /> :
 
                     {/* {this.props.collapsed ?
                         <MenuFoldOutlined onClick={this.props.toggle} /> :

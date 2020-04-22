@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Page from './Page';
 import * as serviceWorker from './serviceWorker';
+
+// !有先后之分 ？？
+import Page from './Page';
+
 import './style/antd/index.less'
 import './style/index.less'
 
 
+
+import configureStore from './redux/configureStore'
+import { Provider } from 'react-redux'
+
+
 ReactDOM.render(
-    <React.StrictMode>
-        <Page />
-    </React.StrictMode>,
+    <Provider store={configureStore}>
+        <React.StrictMode>
+            <Page />
+        </React.StrictMode>
+    </Provider>,
     document.getElementById('root')
 );
 

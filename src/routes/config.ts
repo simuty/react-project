@@ -24,8 +24,14 @@ const menus: {
         {
             key: '/app/dashboard/index',
             title: '首页',
-            icon: 'mobile',
+            icon:  'scan',
             component: 'Dashboard',
+        },
+        {
+            key: '/app/post',
+            title: '论坛',
+            icon:  'scan',
+            component: 'Post',
         },
         {
             key: '/app/ui',

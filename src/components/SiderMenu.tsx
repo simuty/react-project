@@ -10,10 +10,10 @@ const SubMenu = Menu.SubMenu;
 
 type SiderMenuProps = MenuProps & {
     menus: any;
-    onClick: (e: any) => void;
-    selectedKeys?: string[];
-    openKeys?: string[];
-    onOpenChange: (v: string[]) => void;
+    // onClick?: (e: any) => void;
+    // selectedKeys?: string[];
+    // openKeys?: string[];
+    // onOpenChange?: (v: string[]) => void;
 };
 
 // 渲染子菜单
@@ -33,7 +33,9 @@ const renderSubMenu = (item: IFMenu) => {
         <SubMenu
             key={item.key}
             title={
-                <span>{item.title}</span>
+                <span>
+                    {item.title}
+                </span>
             }
         >
             {/* { IFMenu中包含subs，加！强制取，取不到就返回undefined }  */}

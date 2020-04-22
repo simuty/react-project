@@ -37,19 +37,19 @@ export class SiderCustom extends React.Component<ISiderCustomProps, ISiderCustom
         };
     }
 
-    menuClick = (e: any) => {
-        this.setState({
-            selectedKey: e.key,
-        });
-        const { popoverHide } = this.props; // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
-        popoverHide && popoverHide();
-    };
-    openMenu = (v: string[]) => {
-        this.setState({
-            openKeys: v,
-            firstHide: false,
-        });
-    };
+    // menuClick = (e: any) => {
+    //     this.setState({
+    //         selectedKey: e.key,
+    //     });
+    //     const { popoverHide } = this.props; // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
+    //     popoverHide && popoverHide();
+    // };
+    // openMenu = (v: string[]) => {
+    //     this.setState({
+    //         openKeys: v,
+    //         firstHide: false,
+    //     });
+    // };
 
 
     public render() {
@@ -63,20 +63,20 @@ export class SiderCustom extends React.Component<ISiderCustomProps, ISiderCustom
                 <div className="logo" />
                 <SiderMenu
                     menus={menus.menus}
-                    onClick={this.menuClick}
+                    // onClick={this.menuClick}
                     mode="inline"
                     // selectedKeys={['/app/dashboard/index']}
                     // openKeys={firstHide ? [] : openKeys}
-                    onOpenChange={this.openMenu}
+                    // onOpenChange={this.openMenu}
                 />
-                <style>
+                {/* <style>
                     {`
                     #nprogress .spinner{
                         left: ${collapsed ? '70px' : '206px'};
                         right: 0 !important;
                     }
                     `}
-                </style>
+                </style> */}
             </Sider>
         );
     }
