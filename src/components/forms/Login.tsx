@@ -38,7 +38,7 @@ function Login() {
     const history = useHistory();
     const onFinish = (values: any) => {
         console.log('Success:', values);
-        history.push("/404");
+        history.push("/");
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -49,8 +49,11 @@ function Login() {
         console.log('checked = ', e.target.checked);
     }
 
+    const toRegister = () => {
+        history.push("/register");
+    }
+
     return (
-        <div>
             <Card
                 title="登录"
             >
@@ -105,14 +108,11 @@ function Login() {
                             登录
                         </Button>
                         或 <span
-                            onClick={() => {
-                                console.log('点击：去注册')
-                            }}
+                            onClick={toRegister}
                         >现在就去注册!</span>
                     </FormItem>
                 </Form>
             </Card>
-        </div >
     )
 }
 

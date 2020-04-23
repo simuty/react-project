@@ -39,7 +39,7 @@ class HeaderCustom extends React.Component<IHeaderCustomProps, IHeaderCustomStat
 
     logout = () => {
         console.log('点击-退出按钮')
-        // this.props.history.push('/404');
+        this.props.history.push('/login');
     }
 
     public render() {

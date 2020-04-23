@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { antdValidate } from '../../utils/index'
 import { Row, Col, Card, Form, Input, Button, Tooltip, Cascader, Select, Checkbox, AutoComplete } from 'antd'
 import { QuestionCircleOutlined } from "@ant-design/icons"
+import { useHistory } from 'react-router-dom'
+
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -103,6 +106,11 @@ export default function Register() {
         // 验证全部
         form.validateFields();
         console.log('发送短信', form.getFieldValue('phone'))
+    }
+
+    const history = useHistory();
+    const toLogin = () => {
+        history.push('/login')
     }
 
     // 选择器
@@ -268,9 +276,15 @@ export default function Register() {
 
 
                     <FormItem {...tailFormItemLayout}>
-                        <Button type="primary" htmlType="submit" size="large">
+                        <Button type="primary" htmlType="submit" size="large"
+                            style={{ width: '100%' }}
+
+                        >
                             注册
                         </Button>
+                        <span
+                            onClick={toLogin}
+                        >去登录!</span>
                     </FormItem>
 
                 </Form>
