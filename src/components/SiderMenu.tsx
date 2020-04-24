@@ -10,7 +10,7 @@ const SubMenu = Menu.SubMenu;
 
 type SiderMenuProps = MenuProps & {
     menus: any;
-    // onClick?: (e: any) => void;
+    onClick?: (e: any) => void;
     // selectedKeys?: string[];
     // openKeys?: string[];
     // onOpenChange?: (v: string[]) => void;
@@ -81,4 +81,4 @@ function areEqual(prevProps: any, nextProps: any) {
 // 第二个参数用于对比props控制是否刷新，
 //      与shouldComponentUpdate()功能类似。
 
-export default React.memo(SiderMenu, areEqual);
+export default React.memo(SiderMenu);

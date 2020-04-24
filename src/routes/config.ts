@@ -28,10 +28,10 @@ const menus: {
             component: 'Dashboard',
         },
         {
-            key: '/app/post',
-            title: '论坛',
+            key: '/app/statistics',
+            title: '统计数据',
             icon:  'scan',
-            component: 'Post',
+            component: 'Statistics',
         },
         {
             key: '/app/ui',
