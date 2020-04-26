@@ -2,10 +2,14 @@
  * !本页面完成✅
  * 1. card->form->input->checkbox->button->span的基本使用以及各个组件的触发时间
  * !2. 函数组件，路由跳转
- *      路由跳转的几种方式：
- *          1. 路由组件：只有包裹在Route组件里的才能使用`this.props.location`
- *          2. 非路由组件： useHistory 、 withRouter
- *          https://www.cnblogs.com/jianxian/p/12585340.html
+ *          
+ * 1. 路由跳转的几种方式：
+ * https://www.cnblogs.com/jianxian/p/12585340.html
+      1. 路由组件
+         1. this.props.history.push()
+      2. 非路由组件
+         1. useHistory: react-router-dom中的hook--useHistory(): 可以获取到history
+         2. withRouter: 添加withRouter，参数中包含props
  *          
  * 
 */

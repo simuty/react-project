@@ -1,3 +1,12 @@
+/** 
+ * !函数组件中form如何在antion中获取到/验证 form value?
+ * const [form] = Form.useForm()
+ * !只有函数组件可以使用
+ * !可以轻松获取到form.getFieldValue()等
+ * form.validateFields()
+ * form.getFieldValue('phone')
+*/
+
 import React, { useState } from 'react';
 import { antdValidate } from '../../utils/index'
 import { Row, Col, Card, Form, Input, Button, Tooltip, Cascader, Select, Checkbox, AutoComplete } from 'antd'

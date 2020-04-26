@@ -1,87 +1,83 @@
-采用 [Create React App](https://github.com/facebook/create-react-app).
+### 愿景
+之前将Node作为纯后端，目前将Node作为中间层，想要通过一个前端项目，对react全家桶有个整体认识，并且能够开发相应的前后端应用。
+
+### 阶段目标
+
+#### 第一阶段
+
+1. 掌握数据流管理方案--redux及其配套设施；
+2. 熟悉react、react-router-dom、react-router的应用场景以及注意事项；
+3. 熟练使用antd的组件；
+4. 完成前端应用
+
+> 原生化
+1. 尽可能的**只用**原生组件，目光始终在完成需求上；
+2. 尽可能用不同的方式完成同样的需求；
+3. 尽可能好的组织代码方式；
+
+#### 第二阶段
+
+1. Eggjs + Mysql 提供数据服务
+2. 进一步完善前后端
+
+### 参考项目
+
+为了完成目标，会在开源的----[react-admin](https://github.com/karakal-FET/react-admin)的基础上**进行改写**并完成一个相对完善的全栈项目。
+
+### 技术栈
+
+大致分为以下几类，还会涉及其余的相关模块等，后续会在相关位置添加链接或单独写文章整理。
+
+1. 语言：
+   1. [TS](https://www.tslang.cn/docs/handbook/basic-types.html)、
+   2. [Less](http://lesscss.cn/)
+2. React：
+   1. [React](https://react.docschina.org/docs/getting-started.html)
+   2. [react-router](https://react-guide.github.io/react-router-cn/)
+   3. [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+3. 状态管理：
+   1. [Redux](https://www.redux.org.cn/)
+   2. [React-Redux](https://cn.redux.js.org/docs/react-redux/)
+   3. [Redux-Saga](https://redux-saga-in-chinese.js.org/)
+   4. [Immer](https://github.com/immerjs/immer)
+4. UI：
+   1. [Antd](https://ant.design/docs/resources-cn)
+   2. [echartsjs](https://www.echartsjs.com/zh/option.html#title)
+   3. [echarts-for-react](https://github.com/hustcc/echarts-for-react)
+
+### 疑问解答🤔️
+
+采用官方脚手架--[create-react-app](https://www.html.cn/create-react-app/docs/getting-started/)；
+
+> 为何不用[dvajs](https://dvajs.com/guide/)?
+
+综合性很强，但我认为应该**先难后易**
+
+> 为何不用[umi](https://umijs.org/zh-CN/docs/getting-started)?
+
+综合性更强，仍旧认为应该**先难后易**
+
+对比学习node，我觉得先了解express，再写koa，最后采用 egg 是个不错的选择。
+
+> 建议不要eject!
+
+初心是学习react全家桶，不是webpack【后期有空再学】, 至于less相关配置，可以[换个做法](https://ant.design/docs/react/use-in-typescript-cn#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%BB%E9%A2%98)
 
 
-## 目录结构
+---
 
-完整的目录结构说明见， 同级目录下的catalog.md
+### 文章列表
 
+
+
+### 下载
+
+```bash
+$ git clone https://github.com/simuty/react-project
+$ npm i 
+$ npm start
 ```
-components/  (应用级别的通用组件)
-containers/  <容器组件>
-  feature1/     <>
-    components/  (功能拆分出的专用组件)
-    feature1.js  (容器组件)
-    index.js     (feature1对外暴露的接口)
-redux/
-  index.js (combineReducers)
-  module1.js (reducer, action types, actions creators)
-  module2.js (reducer, action types, actions creators)
-index.js
-```
 
-## Available Scripts
+🗣记得切换对应的分支，根据文章匹配的分支🚩
 
-In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
