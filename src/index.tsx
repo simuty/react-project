@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux'
 
 // !有先后之分 ？？
 import Page from './Page';
-
 import './style/antd/index.less'
 import './style/index.less'
 
 
 
-import configureStore from './redux/configureStore'
-import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
+import rootSaga from './sagas'
 
+const store = configureStore()
+store.runSaga(rootSaga)
 
 ReactDOM.render(
-    <Provider store={configureStore}>
+    <Provider store={store}>
         <React.StrictMode>
             <Page />
         </React.StrictMode>

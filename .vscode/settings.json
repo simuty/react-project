@@ -5,5 +5,20 @@
         "sourceMap": false, // 是否创建文件目录树，true的话会自动生成一个 .css.map 文件
         "out": false, // 是否编译输出文件
         "outExt": ".wxss", // 输出文件的后缀,默认为.css
+    },
+    // 头部注释
+    // 在配置文件中写
+    // https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE#2-%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E6%96%87%E4%BB%B6%E5%A4%B4%E9%83%A8%E6%B3%A8%E9%87%8A%E5%8F%AF%E9%80%89%E9%A1%B9
+    "fileheader.customMade": {
+        "Author": "simuty", //编辑人
+        "Date": "Do not edit", //时间
+        "LastEditTime": "Do not edit",
+        "LastEditors": "",
+        "Description": "",
+    },
+    //配置新建文件注释和方法注释
+    "fileheader.configObj": {
+        "createFileTime": true, //设置为true则为文件新建时候作为date，否则注释生成时间为date
+        "autoAdd": true, //自动生成注释，老是忘记的同学可以设置
     }
 }
