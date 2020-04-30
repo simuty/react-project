@@ -3,18 +3,13 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 
-// !有先后之分 ？？
 import Page from './Page';
 import './style/antd/index.less'
 import './style/index.less'
 
-
-
+// 关于 redux 已经中间件配置，详细说明 见./store/configureStore
 import configureStore from './store/configureStore'
-import rootSaga from './sagas'
-
 const store = configureStore()
-store.runSaga(rootSaga)
 
 ReactDOM.render(
     <Provider store={store}>

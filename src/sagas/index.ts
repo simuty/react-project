@@ -1,40 +1,28 @@
 /*
  * @Author: simuty
- * @Date: 2020-04-27 13:26:21
- * @LastEditTime: 2020-04-27 13:26:37
+ * @Date: 2020-04-29 15:05:06
+ * @LastEditTime: 2020-04-30 17:58:01
  * @LastEditors: Please set LastEditors
- * @Description:
+ * @Description: 
+ *      1. redux-saga  https://chenyitian.gitbooks.io/redux-saga/content/
+ *          1. 是一个用于管理 Redux 应用的 副作用【异步操作】的中间件；
+ *          2. 将所有的异步操作逻辑收集在一个地方集中处理；
+ *          3. //! sagas 只会在启动的时候被调用
+ *          3. //! sagas可以被理解为后台运行的进程，监听action; 从而决定基于action进一步做什么！
+ *          4. 任何任务都通过 yield Effects来完成， 【effect可以看作是redux-saga的任务单元】，saga为各项任务提供effect创建器。
+ *      2. 逻辑存放在两个地方
+ *          1. sagas: 专门处理副作用
+ *          2. reducer: 生成新的state
  */
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
-// import Api from '...';
 
-// worker Saga : 将在 USER_FETCH_REQUESTED action 被 dispatch 时调用
-function* fetchUser(action) {
-    try {
-        const user = yield call(Api.fetchUser, action.payload.userId);
-        yield put({ type: 'USER_FETCH_SUCCEEDED', user: user });
-    } catch (e) {
-        yield put({ type: 'USER_FETCH_FAILED', message: e.message });
-    }
+
+import { put, takeEvery, delay } from 'redux-saga/effects'
+
+export function* incrementAsync() {
+    yield delay(1000)
+    yield put({ type: 'INCREMENT' })
 }
 
-/*
-  在每个 `USER_FETCH_REQUESTED` action 被 dispatch 时调用 fetchUser
-  允许并发（译注：即同时处理多个相同的 action）
-*/
-function* mySaga() {
-    yield takeEvery('USER_FETCH_REQUESTED', fetchUser);
+export default function* rootSaga() {
+    yield takeEvery('INCREMENT_ASYNC', incrementAsync)
 }
-
-/*
-  也可以使用 takeLatest
-
-  不允许并发，dispatch 一个 `USER_FETCH_REQUESTED` action 时，
-  如果在这之前已经有一个 `USER_FETCH_REQUESTED` action 在处理中，
-  那么处理中的 action 会被取消，只会执行当前的
-*/
-function* mySaga() {
-    yield takeLatest('USER_FETCH_REQUESTED', fetchUser);
-}
-
-export default mySaga;

@@ -39,7 +39,7 @@ export default class App extends React.Component {
                     <HeaderCustom
                         toggle={this.toggle}
                         collapsed={this.state.collapsed}
-                        // user={}
+                    // user={}
                     ></HeaderCustom>
 
                     <Content className="app_layout_content">

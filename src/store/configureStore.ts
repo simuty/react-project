@@ -1,20 +1,27 @@
 /*
  * @Author: simuty
  * @Date: 2020-04-27 13:35:35
- * @LastEditTime: 2020-04-27 14:38:17
+ * @LastEditTime: 2020-04-29 15:36:08
  * @LastEditors: Please set LastEditors
  * @Description:
  *
- *      1. 配置state相关中间件【开发环境】
+ *      1. redux 中间件初始化；
+ *      2. 引入文件说明
+ *          1.  rootReducer: reducer 根据antion.type生成新的state, 也是createStore所需要的参数
+ *          2.  rootSaga: saga 相关配置
+ *      2. 
  *
  */
-
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducers';
+
 import createSagaMiddleware, { END } from 'redux-saga';
 import { createLogger } from 'redux-logger';
-// 
+
+import rootReducer from '../reducers';
 import rootSaga from '../sagas';
+
+
+/**---------redux-中间件配置&初始化------------*/
 
 // 配置redux日志
 const logger = createLogger({
@@ -25,22 +32,27 @@ const logger = createLogger({
     // titleFormatter: defaultTitleFormatter,
 });
 
+// saga 初始化
 const sagaMiddleware = createSagaMiddleware();
-// 中间件数组
-const middlewareList: any = [sagaMiddleware, logger];
+
+// 加载中间件
+const middleware: any = applyMiddleware(sagaMiddleware, logger);
+/**---------redux-中间件配置&初始化------------*/
+
+
 
 export default function configureStore() {
     const store: any =
-    process.env.NODE_ENV === 'production'
-        ? createStore(rootReducer, middlewareList)
-        : (window as any).__REDUX_DEVTOOLS_EXTENSION__
-        ? createStore(
-              rootReducer,
-              compose(middlewareList, (window as any).__REDUX_DEVTOOLS_EXTENSION__())
-          )
-        : createStore(rootReducer, middlewareList)
+        process.env.NODE_ENV === 'production'
+            ? createStore(rootReducer, middleware)
+            : (window as any).__REDUX_DEVTOOLS_EXTENSION__
+                ? createStore(
+                    rootReducer,
+                    compose(middleware, (window as any).__REDUX_DEVTOOLS_EXTENSION__())
+                )
+                : createStore(rootReducer, middleware)
 
     sagaMiddleware.run(rootSaga);
-    // store.close = () => store.dispatch(END);
+    store.close = () => store.dispatch(END);
     return store;
 }
